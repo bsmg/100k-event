@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReconnectingWebSocket from 'reconnecting-websocket'
 import PropTypes from 'prop-types'
 
 import { waitMS, decelerate, randomRange, PooledRandomRange } from './helpers.js'
@@ -44,7 +45,10 @@ export class ControllerProvider extends Component {
     this.seedPool = new PooledRandomRange(40, 60)
     this.stepPool = new PooledRandomRange(95, 105)
 
-    this.socket = new WebSocket(`${window.location.protocol === 'https:' ? 'wss' : 'ws'}://${window.location.host}/ws`)
+    this.socket = new ReconnectingWebSocket(
+      this.debug ? 'ws://localhost:3001' :
+        `${window.location.protocol === 'https:' ? 'wss' : 'ws'}://${window.location.host}/ws`
+    )
     this.socket.onopen = () => {
       this.sendState()
     }
