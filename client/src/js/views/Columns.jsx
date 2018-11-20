@@ -12,7 +12,7 @@ class Columns extends Component {
         <div className='column'>
           {
             this.context.prizes.map((prize, i) =>
-              <div className={ `item ${i === 0 ? 'active' : ''}` } key={ i }>{ prize.name }</div>
+              <div className={ `item${i === 0 ? ' active' : ''}` } key={ i }>{ prize.name }</div>
             )
           }
 
@@ -34,7 +34,7 @@ class Columns extends Component {
             this.context.winners.map((winner, i) =>
               <div
                 key={ i }
-                className={ `item blue ${i === this.context.activeIdx ? 'active' : ''} ${i === this.context.selectedIdx ? 'selected' : ''}` }
+                className={ `item blue${i === this.context.activeIdx ? ' active' : ''}${i === this.context.selectedIdx ? ' selected' : ''}` }
               >{ winner }</div>
             )
           }

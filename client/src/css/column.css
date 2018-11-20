@@ -19,7 +19,7 @@ div.item {
   padding: 5px 0 1px 5px;
   width: 100%;
 
-  background-color: rgba(136, 136, 136, 0.75);
+  background-color: rgba(169, 169, 169, 0.62);
   border-radius: 4px;
 
   font-size: 1.9rem;
@@ -40,11 +40,11 @@ div.column.right > div.item.joined {
 }
 
 div.item.blue {
-  background-color: rgba(168, 164, 233, 0.75);
+  background-color: rgba(185, 181, 255, 0.62);
 }
 
 div.item.final {
-  background-color: rgba(114, 168, 255, 0.65);
+  background-color: rgba(114, 168, 255, 0.62);
 }
 
 div.item.active {
