@@ -1,0 +1,27 @@
+version: '3.6'
+services:
+  backend:
+    image: 100k-server
+    build: server
+    restart: always
+    networks:
+      - internal
+    env_file:
+      - .env
+  frontend:
+    image: 100k-client
+    build: client
+    restart: always
+    networks:
+      - internal
+  proxy:
+    image: nginx
+    restart: always
+    networks:
+      - internal
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - '33678:80'
+networks:
+  internal:

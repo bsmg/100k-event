@@ -40,7 +40,7 @@ export class ControllerProvider extends Component {
       drawn: [],
     }
 
-    this.socket = new WebSocket('ws://localhost:3000')
+    this.socket = new WebSocket(`${window.location.protocol === 'https:' ? 'wss' : 'ws'}://${window.location.host}/ws`)
     this.socket.onopen = () => {
       this.sendState()
     }
