@@ -14,6 +14,9 @@ export class ControllerProvider extends Component {
       winners: [...initialWinners],
       prizes: [...initialPrizes],
 
+      activeIdx: null,
+
+      total: Math.min(initialWinners.length, initialPrizes.length),
       drawn: [],
     }
   }
@@ -42,9 +45,13 @@ export class ControllerProvider extends Component {
         winners: this.state.winners,
         prizes: this.state.prizes,
         drawn: this.state.drawn,
+        total: this.state.total,
+        activeIdx: this.state.activeIdx,
 
         // Mutators
+        setActiveIdx: idx => { this.setState({ activeIdx: idx }) },
         drawPrize: index => { this.drawPrize(index) },
+        drawPrizeDebug: () => { this.drawPrize(Math.floor(Math.random() * this.state.winners.length)) },
       }}>
         { this.props.children }
       </Provider>

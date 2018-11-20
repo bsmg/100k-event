@@ -1,0 +1,34 @@
+div.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-left: 10px;
+  margin-right: 4px;
+  transition: opacity .15s;
+
+  line-height: 10px;
+}
+
+div.item {
+  margin: 0 5px;
+  padding: 5px 0 1px 5px;
+  width: 100%;
+
+  background-color: rgb(136, 136, 136);
+  border-radius: 4px;
+
+  font-size: 1.9rem;
+  line-height: 1.1;
+  font-weight: bold;
+
+  transition: all .15s;
+}
+
+div.item.active {
+  background-color: white;
+}
+
+div.item.selected {
+  transform: translateX(15px);
+}

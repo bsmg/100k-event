@@ -1,0 +1,24 @@
+body {
+  background-color: black;
+  margin: 0;
+  height: 100vh;
+
+  font-family: 'Teko';
+  background-image: url('../images/background.png');
+}
+
+button.debug {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  font-size: 2rem;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+div.container {
+  display: flex;
+  height: 100%;
+}
