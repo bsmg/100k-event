@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import Context from '../controllers/Context.jsx'
+import PropTypes from 'prop-types'
 
+import Context from '../controllers/Context.jsx'
 import { prizeToImage } from '../controllers/helpers.js'
 
 import '../../css/prize.css'
@@ -9,20 +10,41 @@ class Prize extends Component {
   static contextType = Context
 
   render () {
-    return (
-      <div className='display-container'>
-        <div className='current-prize-container'>
-          <h2>Current Prize</h2>
-          <div className='current-prize' style={{ backgroundImage: prizeToImage(this.context.prizes[0].image) }}>
-            <div className="container">
-              <h2>{ this.context.prizes[0].name }</h2>
-              <p>{ this.context.prizes[0].description }</p>
-            </div>
-          </div>
+    const { prizes } = this.context
+    if (prizes.length === 0) {
+      return <PrizeBox
+        title="That's all folks!"
+        description="Thanks for coming. We'll be continuing the stream with more things to watch so stay tuned!"
+        imageTag={ 'bsmg' }
+      />
+    }
+
+    const [prize] = prizes
+    return <PrizeBox
+      title={ prize.name }
+      description={ prize.description }
+      imageTag={ prize.image }
+    />
+  }
+}
+
+const PrizeBox = props =>
+  <div className='display-container'>
+    <div className='current-prize-container'>
+      <h2>Current Prize</h2>
+      <div className='current-prize' style={{ backgroundImage: prizeToImage(props.imageTag) }}>
+        <div className="container">
+          <h2>{ props.title }</h2>
+          <p>{ props.description }</p>
         </div>
       </div>
-    )
-  }
+    </div>
+  </div>
+
+PrizeBox.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  imageTag: PropTypes.string.isRequired,
 }
 
 export default Prize

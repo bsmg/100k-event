@@ -3,6 +3,7 @@ import viveProHTC from '../../images/prizes/vive-pro-htc.png'
 import viveProVRFI from '../../images/prizes/vive-pro-vrfi.png'
 import viveProPlutovr from '../../images/prizes/vive-pro-plutovr.png'
 import placeholder from '../../images/prizes/placeholder.png'
+import bsmg from '../../images/logo.png'
 
 /**
  * @param {any[]} array Array
@@ -42,6 +43,8 @@ export const prizeToImage = prize => {
       return `url(${viveProVRFI})`
     case 'vive-pro-plutovr':
       return `url(${viveProPlutovr})`
+    case 'bsmg':
+      return `url(${bsmg})`
     default:
       return `url(${placeholder})`
   }

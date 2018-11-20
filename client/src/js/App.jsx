@@ -10,8 +10,13 @@ class App extends Component {
   render () {
     return (
       <Fragment>
-        <button disabled={ this.context.activeIdx !== null } className='debug' onClick={ () => this.context.pickWinner() }>PICK WINNER</button>
-        <button disabled={ this.context.selectedIdx === null } className='debug next' onClick={ () => this.context.reset() }>NEXT</button>
+        {
+          !this.context.master ? null :
+            <Fragment>
+              <button disabled={ this.context.activeIdx !== null } className='debug' onClick={ () => this.context.pickWinner() }>DRAW WINNER</button>
+              <button disabled={ this.context.selectedIdx === null } className='debug next' onClick={ () => this.context.reset() }>NEXT</button>
+            </Fragment>
+        }
 
         <Columns />
         <Prize />

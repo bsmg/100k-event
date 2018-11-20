@@ -130,19 +130,27 @@ export class ControllerProvider extends Component {
   sendState () {
     if (!this.props.master) return undefined
 
-    const token = this.props.token || ''
-    const payload = JSON.stringify({ token, type: 'state', payload: this.state })
+    try {
+      const token = this.props.token || ''
+      const payload = JSON.stringify({ token, type: 'state', payload: this.state })
 
-    this.socket.send(payload)
+      this.socket.send(payload)
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   sendSound (src, volume = 1) {
     if (!this.props.master) return undefined
 
-    const token = this.props.token || ''
-    const payload = JSON.stringify({ token, type: 'sfx', payload: { src, volume } })
+    try {
+      const token = this.props.token || ''
+      const payload = JSON.stringify({ token, type: 'sfx', payload: { src, volume } })
 
-    this.socket.send(payload)
+      this.socket.send(payload)
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   componentDidUpdate () { this.sendState() }

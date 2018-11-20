@@ -10,6 +10,10 @@ div.column {
   line-height: 10px;
 }
 
+div.column.right {
+  margin-left: 18px;
+}
+
 div.item {
   margin: 0 5px;
   padding: 5px 0 1px 5px;
@@ -26,8 +30,13 @@ div.item {
 }
 
 div.item.joined {
-  margin-left: -15px;
-  width: calc(100% + (10px *2));
+  border-radius: 4px 0 0 4px;
+}
+
+div.column.right > div.item.joined {
+  margin-left: -10px;
+  width: calc(100% + (18px));
+  border-radius: 0 4px 4px 0;
 }
 
 div.item.blue {
@@ -35,7 +44,7 @@ div.item.blue {
 }
 
 div.item.final {
-  background-color: #444444;
+  background-color: rgba(114, 168, 255, 0.65);
 }
 
 div.item.active {

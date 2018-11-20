@@ -24,12 +24,12 @@ class Columns extends Component {
 
           {
             this.context.drawn.map(({ prize }, i) =>
-              <div className='item final' key={ i }>{ prize.name }</div>
+              <div className='item final joined' key={ i }>{ prize.name }</div>
             )
           }
         </div>
 
-        <div className='column'>
+        <div className='column right'>
           {
             this.context.winners.map((winner, i) =>
               <div
