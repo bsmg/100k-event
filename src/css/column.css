@@ -22,7 +22,7 @@ div.item {
   line-height: 1.1;
   font-weight: bold;
 
-  transition: all .15s;
+  transition: all .1s;
 }
 
 div.item.active {

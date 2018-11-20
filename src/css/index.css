@@ -14,6 +14,10 @@ button.debug {
   font-size: 2rem;
 }
 
+button.debug.next {
+  top: 100px;
+}
+
 .hidden {
   opacity: 0;
 }
