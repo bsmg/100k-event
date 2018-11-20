@@ -39,11 +39,30 @@ export class ControllerProvider extends Component {
       total: Math.min(initialWinners.length, initialPrizes.length),
       drawn: [],
     }
+
+    this.socket = new WebSocket('ws://localhost:3000')
+    this.socket.onopen = () => {
+      this.sendState()
+    }
+
+    this.socket.onmessage = ev => {
+      if (this.props.master) return undefined
+      const { type, payload } = JSON.parse(ev.data)
+
+      if (type === 'state') return this.setState(payload)
+
+      if (type === 'sfx') {
+        const media = new Audio(payload.src)
+        media.volume = payload.volume || 1
+        media.play()
+      }
+    }
   }
 
   static propTypes = {
     children: PropTypes.node.isRequired,
     master: PropTypes.bool,
+    token: PropTypes.string,
   }
 
   drawPrize (index) {
@@ -76,9 +95,13 @@ export class ControllerProvider extends Component {
         await waitMS((1 / speed) * (i / 8)) // eslint-disable-line
 
         const src = tickSFX[i % tickSFX.length]
+        const volume = Math.max(0, (1 - (3 / i)) * 0.5)
+
         const tick = new Audio(src)
-        tick.volume = Math.max(0, (1 - (3 / i)) * 0.5)
+        tick.volume = volume
+
         tick.play()
+        this.sendSound(src, volume)
 
         this.setState(prevState => {
           const prevIdx = prevState.activeIdx
@@ -104,12 +127,25 @@ export class ControllerProvider extends Component {
     this.setState({ activeIdx: null, selectedIdx: null })
   }
 
-  componentDidUpdate () {
+  sendState () {
     if (!this.props.master) return undefined
 
-    const payload = JSON.stringify(this.state)
-    console.log(payload)
+    const token = this.props.token || ''
+    const payload = JSON.stringify({ token, type: 'state', payload: this.state })
+
+    this.socket.send(payload)
   }
+
+  sendSound (src, volume = 1) {
+    if (!this.props.master) return undefined
+
+    const token = this.props.token || ''
+    const payload = JSON.stringify({ token, type: 'sfx', payload: { src, volume } })
+
+    this.socket.send(payload)
+  }
+
+  componentDidUpdate () { this.sendState() }
 
   render () {
     return (
