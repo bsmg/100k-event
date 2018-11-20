@@ -88,7 +88,7 @@ export class ControllerProvider extends Component {
       this.setState({ activeIdx: start, selectedIdx: null })
 
       const seed = await randomRange(40, 60) / 100
-      const steps = await randomRange(100, 115)
+      const steps = await randomRange(95, 105)
 
       for (let i = 1; i <= steps; i++) {
         const speed = decelerate(i / 10, seed)
@@ -97,11 +97,13 @@ export class ControllerProvider extends Component {
         const src = tickSFX[i % tickSFX.length]
         const volume = Math.max(0, (1 - (3 / i)) * 0.5)
 
-        const tick = new Audio(src)
-        tick.volume = volume
+        if (volume > 0.438) {
+          const tick = new Audio(src)
+          tick.volume = volume
 
-        tick.play()
-        this.sendSound(src, volume)
+          tick.play()
+          this.sendSound(src, volume)
+        }
 
         this.setState(prevState => {
           const prevIdx = prevState.activeIdx
@@ -136,7 +138,7 @@ export class ControllerProvider extends Component {
 
       this.socket.send(payload)
     } catch (err) {
-      console.error(err)
+      // Gracefully Fail
     }
   }
 
@@ -149,7 +151,7 @@ export class ControllerProvider extends Component {
 
       this.socket.send(payload)
     } catch (err) {
-      console.error(err)
+      // Gracefully Fail
     }
   }
 
