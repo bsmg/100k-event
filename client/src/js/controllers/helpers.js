@@ -24,6 +24,41 @@ export const randomRange = async (min, max, bad) => {
   return parseInt(await resp.text(), 10)
 }
 
+export class PooledRandomRange {
+  /**
+   * @param {number} min Lower Bound
+   * @param {number} max Upper Bound
+   * @param {number} [poolSize=2] Pool Size
+   */
+  constructor (min, max, poolSize = 2) {
+    this.min = min
+    this.max = max
+
+    /**
+     * @type {number[]}
+     */
+    this.pool = []
+    this.poolSize = poolSize
+
+    for (let i = 0; i < 2; i++) {
+      this._generateRandom()
+    }
+  }
+
+  async _generateRandom () {
+    const rand = await randomRange(this.min, this.max, false)
+    this.pool.push(rand)
+  }
+
+  generate () {
+    const [rand, ...pool] = this.pool
+    this.pool = pool
+
+    if (this.pool.length < this.poolSize) this._generateRandom()
+    return rand
+  }
+}
+
 /**
  * Async Wait for MS
  * @param {number} ms Milliseconds

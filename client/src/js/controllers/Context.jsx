@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import { waitMS, decelerate, randomRange } from './helpers.js'
+import { waitMS, decelerate, randomRange, PooledRandomRange } from './helpers.js'
 import { winners as initialWinners, prizes as initialPrizes } from './data.js'
 
 import tickSFX_A4 from '../../media/tick3-A4.wav'
@@ -39,6 +39,10 @@ export class ControllerProvider extends Component {
       total: Math.min(initialWinners.length, initialPrizes.length),
       drawn: [],
     }
+
+    this.startPool = new PooledRandomRange(0, this.state.total)
+    this.seedPool = new PooledRandomRange(40, 60)
+    this.stepPool = new PooledRandomRange(95, 105)
 
     this.socket = new WebSocket(`${window.location.protocol === 'https:' ? 'wss' : 'ws'}://${window.location.host}/ws`)
     this.socket.onopen = () => {
@@ -84,11 +88,11 @@ export class ControllerProvider extends Component {
     if (!this.props.master) return undefined
 
     if (!this.debug) {
-      const start = await randomRange(0, this.state.prizes.length - 1)
+      const start = this.startPool.generate() % this.state.prizes.length
       this.setState({ activeIdx: start, selectedIdx: null })
 
-      const seed = await randomRange(40, 60) / 100
-      const steps = await randomRange(95, 105)
+      const seed = this.seedPool.generate() / 100
+      const steps = this.stepPool.generate()
 
       for (let i = 1; i <= steps; i++) {
         const speed = decelerate(i / 10, seed)
