@@ -15,7 +15,7 @@ div.item {
   padding: 5px 0 1px 5px;
   width: 100%;
 
-  background-color: rgb(136, 136, 136);
+  background-color: rgba(136, 136, 136, 0.75);
   border-radius: 4px;
 
   font-size: 1.9rem;
@@ -23,6 +23,19 @@ div.item {
   font-weight: bold;
 
   transition: all .1s;
+}
+
+div.item.joined {
+  margin-left: -15px;
+  width: calc(100% + (10px *2));
+}
+
+div.item.blue {
+  background-color: rgba(168, 164, 233, 0.75);
+}
+
+div.item.final {
+  background-color: #444444;
 }
 
 div.item.active {
