@@ -133,5 +133,5 @@ export const winners = [...[
   'Roffle',
   'Yurie',
   'MaxInertia',
-  '-- TBD',
+  'Grizzley',
 ].sort((a, b) => a.localeCompare(b))]
