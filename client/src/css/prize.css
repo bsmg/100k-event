@@ -29,6 +29,8 @@ div.current-prize-container > div.current-prize {
 
   width: 800px;
   height: 240px;
+
+  transition: opacity 0.15s;
 }
 
 div.current-prize-container div.current-prize div.container {

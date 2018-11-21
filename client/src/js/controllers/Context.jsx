@@ -39,6 +39,8 @@ export class ControllerProvider extends Component {
 
       total: Math.min(initialWinners.length, initialPrizes.length),
       drawn: [],
+
+      prizeHidden: false,
     }
 
     this.startPool = new PooledRandomRange(0, this.state.total)
@@ -73,10 +75,15 @@ export class ControllerProvider extends Component {
     token: PropTypes.string,
   }
 
-  drawPrize (index) {
-    if (!this.props.master) return undefined
+  setStateAsync (state) {
+    return new Promise(resolve => {
+      this.setState(state, () => { resolve() })
+    })
+  }
 
-    if (this.state.prizes.length === 0 || this.state.winners.length === 0) return this
+  async drawPrize (index) {
+    if (!this.props.master) return undefined
+    if (this.state.prizes.length === 0 || this.state.winners.length === 0) return undefined
 
     const [prize] = this.state.prizes
     const winner = this.state.winners[index]
@@ -85,7 +92,11 @@ export class ControllerProvider extends Component {
     const winners = [...this.state.winners].filter((_, i) => index !== i)
     const drawn = [...this.state.drawn, { prize, winner }]
 
-    this.setState({ prizes, winners, drawn })
+    await this.setStateAsync({ prizeHidden: true })
+    await waitMS(200)
+    await this.setStateAsync({ prizes, winners, drawn })
+    await waitMS(200)
+    await this.setStateAsync({ prizeHidden: false })
   }
 
   async pickWinner () {
@@ -130,10 +141,10 @@ export class ControllerProvider extends Component {
     this.setState(prevState => ({ selectedIdx: prevState.activeIdx }))
   }
 
-  reset () {
+  async reset () {
     if (!this.props.master) return undefined
 
-    this.drawPrize(this.state.selectedIdx)
+    await this.drawPrize(this.state.selectedIdx)
     this.setState({ activeIdx: null, selectedIdx: null })
   }
 
@@ -179,6 +190,8 @@ export class ControllerProvider extends Component {
 
         activeIdx: this.state.activeIdx,
         selectedIdx: this.state.selectedIdx,
+
+        prizeHidden: this.state.prizeHidden,
 
         // Mutators
         setActiveIdx: idx => { this.setState({ activeIdx: idx }) },
