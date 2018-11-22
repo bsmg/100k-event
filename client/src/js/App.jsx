@@ -2,12 +2,14 @@ import React, { Component, Fragment } from 'react'
 import Context from './controllers/Context.jsx'
 
 import './preload.js'
-        
+import '../css/main.css'
+
 import Prizes from './views/columns/Prizes.jsx'
 import Winners from './views/columns/Winners.jsx'
 import Contestants from './views/columns/Contestants.jsx'
 
 import Prize from './views/Prize.jsx'
+import Footer from './views/Footer.jsx'
 
 class App extends Component {
   static contextType = Context
@@ -26,7 +28,10 @@ class App extends Component {
         <Prizes />
         <Winners />
 
-        <Prize />
+        <div className='main'>
+          <Prize />
+          <Footer />
+        </div>
 
         <Contestants />
       </Fragment>

@@ -3,7 +3,7 @@ import viveProHTC from '../../images/prizes/vive-pro-htc.png'
 import viveProVRFI from '../../images/prizes/vive-pro-vrfi.png'
 import viveProPlutovr from '../../images/prizes/vive-pro-plutovr.png'
 import placeholder from '../../images/prizes/placeholder.png'
-import bsmg from '../../images/logo.png'
+import bsmg from '../../images/logo-banner.png'
 
 /**
  * @param {any[]} array Array
