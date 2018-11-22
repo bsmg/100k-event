@@ -3,6 +3,7 @@ import Context from './controllers/Context.jsx'
 
 import Columns from './views/Columns.jsx'
 import Prize from './views/Prize.jsx'
+import Contestants from './views/Contestants.jsx'
 
 class App extends Component {
   static contextType = Context
@@ -20,6 +21,7 @@ class App extends Component {
 
         <Columns />
         <Prize />
+        <Contestants />
       </Fragment>
     )
   }
