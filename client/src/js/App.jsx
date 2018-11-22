@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import Context from './controllers/Context.jsx'
 
+import './preload.js'
 import Columns from './views/Columns.jsx'
 import Prize from './views/Prize.jsx'
 
