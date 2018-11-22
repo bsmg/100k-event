@@ -10,13 +10,15 @@ div.column {
   line-height: 10px;
 }
 
-div.column.right {
-  margin-right: 18px;
+div.column.contestants {
+  margin-right: 10px;
 }
 
 div.item.title {
-  color: rgba(169, 169, 169, 0.62);
+  color: rgba(255, 255, 255, 0.62);
   background-color: transparent;
+  font-weight: inherit;
+  text-align: center;
 }
 
 div.item {
@@ -36,7 +38,6 @@ div.item {
 
 div.item.joined {
   border-radius: 4px 0 0 4px;
-  color: rgba(0,0,0,0.75);
 }
 
 div.column.winners > div.item.joined {
@@ -51,6 +52,7 @@ div.item.blue {
 
 div.item.final {
   background-color: rgba(114, 255, 175, 0.62);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 div.item.active {
