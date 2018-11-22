@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ReconnectingWebSocket from 'reconnecting-websocket'
+import Sockette from 'sockette'
 import PropTypes from 'prop-types'
 
 import { waitMS, decelerate, randomRange, PooledRandomRange } from './helpers.js'
@@ -48,32 +48,28 @@ export class ControllerProvider extends Component {
       JSON.parse(localState) :
       this.initialState
 
-    this.sendState()
-
     this.startPool = new PooledRandomRange(0, this.state.total)
     this.seedPool = new PooledRandomRange(40, 60)
     this.stepPool = new PooledRandomRange(95, 105)
 
-    this.socket = new ReconnectingWebSocket(
-      this.debug ? 'ws://localhost:3001' :
-        `${window.location.protocol === 'https:' ? 'wss' : 'ws'}://${window.location.host}/ws`
-    )
-    this.socket.onopen = () => {
-      this.sendState()
-    }
+    const wsURL = this.debug ? 'ws://localhost:3001' :
+      `${window.location.protocol === 'https:' ? 'wss' : 'ws'}://${window.location.host}/ws`
 
-    this.socket.onmessage = ev => {
-      if (this.props.master) return undefined
-      const { type, payload } = JSON.parse(ev.data)
+    this.socket = new Sockette(wsURL, {
+      onopen: () => { this.sendState() },
+      onmessage: ev => {
+        if (this.props.master) return undefined
+        const { type, payload } = JSON.parse(ev.data)
 
-      if (type === 'state') return this.setState(payload)
+        if (type === 'state') return this.setState(payload)
 
-      if (type === 'sfx') {
-        const media = new Audio(payload.src)
-        media.volume = payload.volume || 1
-        media.play()
-      }
-    }
+        if (type === 'sfx') {
+          const media = new Audio(payload.src)
+          media.volume = payload.volume || 1
+          media.play()
+        }
+      },
+    })
   }
 
   static propTypes = {
