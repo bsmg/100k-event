@@ -21,7 +21,7 @@ export const prizes = [
   },
   {
     name: 'VIVE Pro',
-    description: 'VIVE Pro v2 - Full Kit',
+    description: 'VIVE Pro v2 Full Kit',
     image: 'vive-pro-plutovr',
   },
   {
@@ -51,7 +51,7 @@ export const prizes = [
   },
   {
     name: 'VIVE Pro',
-    description: 'VIVE Pro v2 - Full Kit',
+    description: 'VIVE Pro v2 Full Kit',
     image: 'vive-pro-vrfi',
   },
   {
@@ -76,7 +76,7 @@ export const prizes = [
   },
   {
     name: 'VIVE Pro + Wireless',
-    description: 'VIVE Pro v2 - Full Kit + Wireless Adapter',
+    description: 'VIVE Pro v2 Full Kit + Wireless Adapter',
     image: 'vive-pro-htc',
   },
   {
@@ -106,12 +106,12 @@ export const prizes = [
   },
   {
     name: 'VIVE Pro + Wireless',
-    description: 'VIVE Pro v2 - Full Kit + Wireless Adapter',
+    description: 'VIVE Pro v2 Full Kit + Wireless Adapter',
     image: 'vive-pro-htc',
   },
 ]
 
-export const winners = [...[
+export const contestants = [...[
   'FREEDOM joelseph',
   'AkaRaiden',
   'flasheh',

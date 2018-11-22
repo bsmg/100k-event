@@ -14,7 +14,7 @@ body {
 button.debug {
   position: absolute;
   top: 50px;
-  right: 50px;
+  right: 200px;
   font-size: 2rem;
 }
 

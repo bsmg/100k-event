@@ -10,8 +10,15 @@ div.column {
   line-height: 10px;
 }
 
-div.column.right {
-  margin-left: 18px;
+div.column.contestants {
+  margin-right: 10px;
+}
+
+div.item.title {
+  color: rgba(255, 255, 255, 0.62);
+  background-color: transparent;
+  font-weight: inherit;
+  text-align: center;
 }
 
 div.item {
@@ -33,9 +40,9 @@ div.item.joined {
   border-radius: 4px 0 0 4px;
 }
 
-div.column.right > div.item.joined {
-  margin-left: -10px;
-  width: calc(100% + (18px));
+div.column.winners > div.item.joined {
+  margin-left: 5px;
+  width: calc(100% + 18px);
   border-radius: 0 4px 4px 0;
 }
 
@@ -44,13 +51,14 @@ div.item.blue {
 }
 
 div.item.final {
-  background-color: rgba(114, 168, 255, 0.62);
+  background-color: rgba(114, 255, 175, 0.62);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 div.item.active {
   background-color: white;
 }
 
-div.item.selected {
-  transform: translateX(15px);
+div.column.contestants > div.item.selected {
+  transform: translateX(-15px);
 }
