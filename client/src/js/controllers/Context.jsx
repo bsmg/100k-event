@@ -3,7 +3,7 @@ import ReconnectingWebSocket from 'reconnecting-websocket'
 import PropTypes from 'prop-types'
 
 import { waitMS, decelerate, randomRange, PooledRandomRange } from './helpers.js'
-import { winners as initialWinners, prizes as initialPrizes } from './data.js'
+import { contestants as initialContestants, prizes as initialPrizes } from './data.js'
 
 import tickSFX_A4 from '../../media/tick3-A4.wav'
 import tickSFX_G4 from '../../media/tick3-G4.wav'
@@ -31,13 +31,13 @@ export class ControllerProvider extends Component {
     this.debug = false
 
     this.state = {
-      winners: [...initialWinners],
+      contestants: [...initialContestants],
       prizes: [...initialPrizes],
 
       activeIdx: null,
       selectedIdx: null,
 
-      total: Math.min(initialWinners.length, initialPrizes.length),
+      total: Math.min(initialContestants.length, initialPrizes.length),
       drawn: [],
 
       prizeHidden: false,
@@ -83,18 +83,18 @@ export class ControllerProvider extends Component {
 
   async drawPrize (index) {
     if (!this.props.master) return undefined
-    if (this.state.prizes.length === 0 || this.state.winners.length === 0) return undefined
+    if (this.state.prizes.length === 0 || this.state.contestants.length === 0) return undefined
 
     const [prize] = this.state.prizes
-    const winner = this.state.winners[index]
+    const winner = this.state.contestants[index]
 
     const prizes = [...this.state.prizes].slice(1)
-    const winners = [...this.state.winners].filter((_, i) => index !== i)
+    const contestants = [...this.state.contestants].filter((_, i) => index !== i)
     const drawn = [...this.state.drawn, { prize, winner }]
 
     await this.setStateAsync({ prizeHidden: true })
     await waitMS(200)
-    await this.setStateAsync({ prizes, winners, drawn })
+    await this.setStateAsync({ prizes, contestants, drawn })
     await waitMS(200)
     await this.setStateAsync({ prizeHidden: false })
   }
@@ -183,7 +183,7 @@ export class ControllerProvider extends Component {
         master: this.props.master || false,
 
         // Data
-        winners: this.state.winners,
+        contestants: this.state.contestants,
         prizes: this.state.prizes,
         drawn: this.state.drawn,
         total: this.state.total,

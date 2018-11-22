@@ -11,7 +11,7 @@ class Columns extends Component {
       <Fragment>
         <div className='column right'>
           {
-            this.context.winners.map((winner, i) =>
+            this.context.contestants.map((winner, i) =>
               <div
                 key={ i }
                 className={ `item blue${i === this.context.activeIdx ? ' active' : ''}${i === this.context.selectedIdx ? ' selected' : ''}` }

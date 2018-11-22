@@ -111,7 +111,7 @@ export const prizes = [
   },
 ]
 
-export const winners = [...[
+export const contestants = [...[
   'FREEDOM joelseph',
   'AkaRaiden',
   'flasheh',
