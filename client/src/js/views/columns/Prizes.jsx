@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
-import Context from '../controllers/Context.jsx'
+import Context from '../../controllers/Context.jsx'
 
-import '../../css/column.css'
+import '../../../css/column.css'
 
-class PrizeColumn extends Component {
+class Prizes extends Component {
   static contextType = Context
 
   render () {
@@ -34,4 +34,4 @@ class PrizeColumn extends Component {
   }
 }
 
-export default PrizeColumn
+export default Prizes

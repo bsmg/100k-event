@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react'
 import Context from './controllers/Context.jsx'
 
-import PrizeColumn from './views/PrizeColumn.jsx'
+import Prizes from './views/columns/Prizes.jsx'
+import Winners from './views/columns/Winners.jsx'
+import Contestants from './views/columns/Contestants.jsx'
+
 import Prize from './views/Prize.jsx'
-import Contestants from './views/Contestants.jsx'
-import Winners from './views/Winners.jsx'
 
 class App extends Component {
   static contextType = Context
@@ -20,9 +21,11 @@ class App extends Component {
             </Fragment>
         }
 
-        <PrizeColumn />
+        <Prizes />
         <Winners />
+
         <Prize />
+
         <Contestants />
       </Fragment>
     )

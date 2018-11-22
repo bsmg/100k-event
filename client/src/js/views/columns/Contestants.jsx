@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
-import Context from '../controllers/Context.jsx'
+import Context from '../../controllers/Context.jsx'
 
-import '../../css/column.css'
+import '../../../css/column.css'
 
-class Columns extends Component {
+class Contestants extends Component {
   static contextType = Context
 
   render () {
@@ -37,4 +37,4 @@ class Columns extends Component {
   }
 }
 
-export default Columns
+export default Contestants
