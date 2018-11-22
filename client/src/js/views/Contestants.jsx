@@ -11,11 +11,11 @@ class Columns extends Component {
       <Fragment>
         <div className='column right'>
           {
-            this.context.contestants.map((winner, i) =>
+            this.context.contestants.map((contestant, i) =>
               <div
                 key={ i }
                 className={ `item blue${i === this.context.activeIdx ? ' active' : ''}${i === this.context.selectedIdx ? ' selected' : ''}` }
-              >{ winner }</div>
+              >{ contestant }</div>
             )
           }
 
@@ -27,7 +27,7 @@ class Columns extends Component {
 
           {
             this.context.drawn.map(({ winner }, i) =>
-              <div className='item final joined' key={ i }>{ winner }</div>
+              <div className='item final joined hidden' key={ i }>{ winner }</div>
             )
           }
         </div>

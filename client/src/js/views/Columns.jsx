@@ -31,8 +31,11 @@ class Columns extends Component {
 
         <div className='column winners'>
           {
-            this.context.prizes.map((prize, i) =>
-              <div className={ `item winner` } key={ i }>{ `none` }</div>
+            this.context.contestants.map((contestant, i) =>
+              <div
+                key={ i }
+                className={ `item hidden` }
+              >{ contestant }</div>
             )
           }
 
@@ -43,8 +46,8 @@ class Columns extends Component {
           }
 
           {
-            this.context.drawn.map(({ prize }, i) =>
-              <div className='item final joined' key={ i }>{ prize.name }</div>
+            this.context.drawn.map(({ winner }, i) =>
+              <div className='item final joined' key={ i }>{ winner }</div>
             )
           }
         </div>
