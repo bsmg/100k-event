@@ -9,7 +9,8 @@ class PrizeColumn extends Component {
   render () {
     return (
       <Fragment>
-        <div className='column'>
+        <div className='column prizes'>
+          <div className='item title'>Prizes</div>
           {
             this.context.drawn.map(({ prize }, i) =>
               <div className='item final joined' key={ i }>{ prize.name }</div>

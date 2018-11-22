@@ -11,7 +11,12 @@ div.column {
 }
 
 div.column.right {
-  margin-left: 18px;
+  margin-right: 18px;
+}
+
+div.item.title {
+  color: rgba(169, 169, 169, 0.62);
+  background-color: transparent;
 }
 
 div.item {
@@ -31,6 +36,7 @@ div.item {
 
 div.item.joined {
   border-radius: 4px 0 0 4px;
+  color: rgba(0,0,0,0.75);
 }
 
 div.column.winners > div.item.joined {
@@ -51,6 +57,6 @@ div.item.active {
   background-color: white;
 }
 
-div.item.selected {
+div.column.contestants > div.item.selected {
   transform: translateX(-15px);
 }

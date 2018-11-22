@@ -10,6 +10,7 @@ class Prizes extends Component {
     return (
       <Fragment>
         <div className='column winners'>
+          <div className='item title'>Winners</div>
           {
             this.context.drawn.map(({ winner }, i) =>
               <div className='item final joined' key={ i }>{ winner }</div>
