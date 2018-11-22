@@ -33,9 +33,9 @@ div.item.joined {
   border-radius: 4px 0 0 4px;
 }
 
-div.column.right > div.item.joined {
-  margin-left: -10px;
-  width: calc(100% + (18px));
+div.column.winners > div.item.joined {
+  margin-left: 5px;
+  width: calc(100% + 18px);
   border-radius: 0 4px 4px 0;
 }
 
@@ -44,7 +44,7 @@ div.item.blue {
 }
 
 div.item.final {
-  background-color: rgba(114, 168, 255, 0.62);
+  background-color: rgba(114, 255, 175, 0.62);
 }
 
 div.item.active {
@@ -52,5 +52,5 @@ div.item.active {
 }
 
 div.item.selected {
-  transform: translateX(15px);
+  transform: translateX(-15px);
 }
