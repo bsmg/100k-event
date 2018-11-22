@@ -3,16 +3,16 @@ import Context from '../controllers/Context.jsx'
 
 import '../../css/column.css'
 
-class Columns extends Component {
+class Prizes extends Component {
   static contextType = Context
 
   render () {
     return (
       <Fragment>
-        <div className='column right'>
+        <div className='column winners'>
           {
             this.context.drawn.map(({ winner }, i) =>
-              <div className='item final joined hidden' key={ i }>{ winner }</div>
+              <div className='item final joined' key={ i }>{ winner }</div>
             )
           }
 
@@ -26,7 +26,7 @@ class Columns extends Component {
             this.context.contestants.map((contestant, i) =>
               <div
                 key={ i }
-                className={ `item blue${i === this.context.activeIdx ? ' active' : ''}${i === this.context.selectedIdx ? ' selected' : ''}` }
+                className={ `item hidden` }
               >{ contestant }</div>
             )
           }
@@ -36,4 +36,4 @@ class Columns extends Component {
   }
 }
 
-export default Columns
+export default Prizes
