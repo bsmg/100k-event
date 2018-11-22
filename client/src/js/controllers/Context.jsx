@@ -30,7 +30,7 @@ export class ControllerProvider extends Component {
 
     this.debug = false
 
-    this.state = {
+    this.initialState = {
       contestants: [...initialContestants],
       prizes: [...initialPrizes],
 
@@ -42,6 +42,13 @@ export class ControllerProvider extends Component {
 
       prizeHidden: false,
     }
+
+    const localState = localStorage.getItem('state')
+    this.state = this.props.master && localState ?
+      JSON.parse(localState) :
+      this.initialState
+
+    this.sendState()
 
     this.startPool = new PooledRandomRange(0, this.state.total)
     this.seedPool = new PooledRandomRange(40, 60)
@@ -148,9 +155,10 @@ export class ControllerProvider extends Component {
     this.setState({ activeIdx: null, selectedIdx: null })
   }
 
-  sendState () {
+  sendState (noStore) {
     if (!this.props.master) return undefined
 
+    // Send WS
     try {
       const token = this.props.token || ''
       const payload = JSON.stringify({ token, type: 'state', payload: this.state })
@@ -158,6 +166,11 @@ export class ControllerProvider extends Component {
       this.socket.send(payload)
     } catch (err) {
       // Gracefully Fail
+    }
+
+    // Save to Local Storage
+    if (!noStore) {
+      localStorage.setItem('state', JSON.stringify(this.state))
     }
   }
 
@@ -172,6 +185,12 @@ export class ControllerProvider extends Component {
     } catch (err) {
       // Gracefully Fail
     }
+  }
+
+  async resetStorage () {
+    localStorage.removeItem('state')
+    await this.setStateAsync(this.initialState)
+    await this.sendState(true)
   }
 
   componentDidUpdate () { this.sendState() }
@@ -200,6 +219,7 @@ export class ControllerProvider extends Component {
         // Draw Prize
         pickWinner: () => { this.pickWinner() },
         reset: () => { this.reset() },
+        resetStorage: () => { this.resetStorage() },
       }}>
         { this.props.children }
       </Provider>
