@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import { waitMS, decelerate, randomRange, PooledRandomRange } from './helpers.js'
 import { contestants as initialContestants, prizes as initialPrizes } from './data.js'
 
+import winnerJingle from '../../media/winner-jingle6.wav'
 import tickSFX_A4 from '../../media/tick3-A4.wav'
 import tickSFX_G4 from '../../media/tick3-G4.wav'
 import tickSFX_E4 from '../../media/tick3-E4.wav'
@@ -129,7 +130,9 @@ export class ControllerProvider extends Component {
       this.setState({ activeIdx: random })
     }
 
-    await waitMS(this.debug ? 0 : 800)
+    await waitMS(this.debug ? 0 : 650)
+    this.playSound(winnerJingle, 0.6)
+    await waitMS(this.debug ? 0 : 150)
     this.setState(prevState => ({ selectedIdx: prevState.activeIdx }))
   }
 
