@@ -13,7 +13,13 @@ class Winners extends Component {
           <div className='item title'>Winners</div>
           {
             this.context.drawn.map(({ winner }, i) =>
-              <div className='item final joined' key={ i }>{ winner }</div>
+              <div
+                key={ i }
+                style={{ '--image': `url('${winner.image}')` }}
+                className='item final joined image-right'
+              >
+                { winner.name }
+              </div>
             )
           }
 
@@ -28,7 +34,7 @@ class Winners extends Component {
               <div
                 key={ i }
                 className={ `item hidden` }
-              >{ contestant }</div>
+              >{ contestant.name }</div>
             )
           }
         </div>
