@@ -87,6 +87,8 @@ export class ControllerProvider extends Component {
     const [prize] = this.state.prizes
     const winner = this.state.contestants[index]
 
+    await this.setStateAsync({ activeIdx: null, selectedIdx: null })
+
     const prizes = [...this.state.prizes].slice(1)
     const contestants = [...this.state.contestants].filter((_, i) => index !== i)
     const drawn = [...this.state.drawn, { prize, winner }]
@@ -100,30 +102,36 @@ export class ControllerProvider extends Component {
 
   async pickWinner () {
     if (!this.props.master) return undefined
+    if (this.state.contestants.length <= 0) return undefined
 
     if (!this.debug) {
-      const start = this.startPool.generate() % this.state.prizes.length
-      this.setState({ activeIdx: start, selectedIdx: null })
+      // If there is only one person left, return index 0 immediately
+      if (this.state.contestants.length === 1) {
+        this.setState({ activeIdx: 0 })
+      } else {
+        const start = this.startPool.generate() % this.state.prizes.length
+        this.setState({ activeIdx: start, selectedIdx: null })
 
-      const seed = this.seedPool.generate() / 100
-      const steps = this.stepPool.generate()
+        const seed = this.seedPool.generate() / 100
+        const steps = this.stepPool.generate()
 
-      for (let i = 1; i <= steps; i++) {
-        const speed = decelerate(i / 10, seed)
-        await waitMS((1 / speed) * (i / 8)) // eslint-disable-line
+        for (let i = 1; i <= steps; i++) {
+          const speed = decelerate(i / 10, seed)
+          await waitMS((1 / speed) * (i / 8)) // eslint-disable-line
 
-        const src = tickSFX[i % tickSFX.length]
-        const volume = Math.max(0, (1 - (3 / i)) * 0.5)
+          const src = tickSFX[i % tickSFX.length]
+          const volume = Math.max(0, (1 - (3 / i)) * 0.5)
 
-        if (volume > 0.438) this.playSound(src, volume)
+          if (volume > 0.438) this.playSound(src, volume)
 
-        this.setState(prevState => {
-          const prevIdx = prevState.activeIdx
+          this.setState(prevState => {
+            const prevIdx = prevState.activeIdx
 
-          const activeIdx = prevIdx + 1
-          if (activeIdx >= this.state.prizes.length) return { activeIdx: 0 }
-          else return { activeIdx }
-        })
+            const activeIdx = prevIdx + 1
+            if (activeIdx >= this.state.prizes.length) return { activeIdx: 0 }
+            else return { activeIdx }
+          })
+        }
       }
     } else {
       const random = await randomRange(0, this.state.prizes.length - 1, true)
