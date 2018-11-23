@@ -18,6 +18,10 @@ div.display-container > div.videoFX {
   z-index: -1;
 }
 
+video#background-video {
+  transition: opacity 0.15s;
+}
+
 div.current-prize-container > h2 {
   font-size: 4rem;
   font-weight: 500;
