@@ -62,12 +62,7 @@ export class ControllerProvider extends Component {
         const { type, payload } = JSON.parse(ev.data)
 
         if (type === 'state') return this.setState(payload)
-
-        if (type === 'sfx') {
-          const media = new Audio(payload.src)
-          media.volume = payload.volume || 1
-          media.play()
-        }
+        if (type === 'sfx') this.playSound(payload.src, payload.volume || 1, false)
       },
     })
   }
@@ -119,13 +114,7 @@ export class ControllerProvider extends Component {
         const src = tickSFX[i % tickSFX.length]
         const volume = Math.max(0, (1 - (3 / i)) * 0.5)
 
-        if (volume > 0.438) {
-          const tick = new Audio(src)
-          tick.volume = volume
-
-          tick.play()
-          this.sendSound(src, volume)
-        }
+        if (volume > 0.438) this.playSound(src, volume)
 
         this.setState(prevState => {
           const prevIdx = prevState.activeIdx
@@ -142,6 +131,14 @@ export class ControllerProvider extends Component {
 
     await waitMS(this.debug ? 0 : 800)
     this.setState(prevState => ({ selectedIdx: prevState.activeIdx }))
+  }
+
+  playSound (src, volume, send = true) {
+    const audio = new Audio(src)
+    audio.volume = volume || 1
+
+    audio.play()
+    if (send) this.sendSound(src, volume)
   }
 
   async reset () {
