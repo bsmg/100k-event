@@ -11,6 +11,14 @@ div.display-container {
   color: white;
 }
 
+div.display-container > div.videoFX {
+  background-color: red;
+  position: fixed;
+  width: 1000px;
+  height: 440px;
+  z-index: -1;
+}
+
 div.current-prize-container > h2 {
   font-size: 4rem;
   font-weight: 500;

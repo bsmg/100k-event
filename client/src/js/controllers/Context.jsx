@@ -29,7 +29,7 @@ export class ControllerProvider extends Component {
   constructor (props) {
     super(props)
 
-    this.debug = false
+    this.debug = true
 
     this.initialState = {
       contestants: [...initialContestants],

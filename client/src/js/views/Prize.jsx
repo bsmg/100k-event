@@ -32,6 +32,13 @@ class Prize extends Component {
 
 const PrizeBox = props =>
   <div className='display-container'>
+    <div className='videoFX'>
+      <video id="background-video" loop autoPlay>
+        <source src={ props.videoURL } type="video/mp4" />
+        <source src={ props.videoURL } type="video/ogg" />
+            Your browser does not support the video tag.
+      </video>
+    </div>
     <div className='current-prize-container'>
       <h2>Current Prize</h2>
       <div className={ `current-prize${props.hidden ? ' hidden' : ''}` } style={{ backgroundImage: prizeToImage(props.imageTag) }}>
@@ -47,6 +54,7 @@ PrizeBox.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   imageTag: PropTypes.string.isRequired,
+  videoTag: PropTypes.string.isRequired,
   hidden: PropTypes.bool,
 }
 
