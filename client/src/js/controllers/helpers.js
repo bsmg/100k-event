@@ -91,4 +91,3 @@ export const prizeToImage = prize => {
  * @returns {number}
  */
 export const decelerate = (x, seed = 0.5) => Math.pow(Math.pow(10 * x, -1), 0.5) * seed
-

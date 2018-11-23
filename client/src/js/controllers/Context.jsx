@@ -95,7 +95,11 @@ export class ControllerProvider extends Component {
     const contestants = [...this.state.contestants].filter((_, i) => index !== i)
     const drawn = [...this.state.drawn, { prize, winner }]
 
-    if (prizes[0] && prizes[0].dramatic) this.playSound(dramaticSFX, 0.3)
+    if (prizes[0] && prizes[0].dramatic) {
+      this.playSound(dramaticSFX, 0.3)
+      await waitMS(220)
+    }
+
     await this.setStateAsync({ prizeHidden: true })
     await waitMS(200)
 
