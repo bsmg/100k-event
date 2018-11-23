@@ -39,6 +39,12 @@ div.current-prize-container > div.current-prize {
   transition: opacity 0.15s;
 }
 
+div.display-container > div.dramatic {
+  animation-name: dramaticShake;
+  animation-duration: 0.5s;
+  animation-iteration-count:1;
+}
+
 div.current-prize-container div.current-prize div.container {
   padding: 20px;
   padding-left: 15px;
@@ -63,4 +69,13 @@ div.current-prize-container div.current-prize div.container > p {
   max-width: 500px;
 
   font-weight: initial;
+}
+
+@keyframes dramaticShake {
+  0%   {transform: translate(0px, 0px);}
+  49%   {transform: translate(0px, 0px);}
+  50%   {transform: translate(5px, 5px);}
+  60%   {transform: translate(-5px, 0px);}
+  70%   {transform: translate(2px, -5px);}
+  80%   {transform: translate(-2px, 0px);}
 }

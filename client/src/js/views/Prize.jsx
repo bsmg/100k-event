@@ -27,6 +27,7 @@ class Prize extends Component {
       imageTag={ prize.image }
       hidden={ prizeHidden }
       hasWinner={ selectedIdx !== null }
+      dramatic={ prize.dramatic }
     />
   }
 }
@@ -39,9 +40,9 @@ const PrizeBox = props =>
             Your browser does not support the video tag.
       </video>
     </div>
-    <div className='current-prize-container'>
+    <div className={`current-prize-container${props.dramatic ? ' dramatic' : ''}`}>
       <h2>Current Prize</h2>
-      <div className={ `current-prize${props.hidden ? ' hidden' : ''}` } style={{ backgroundImage: prizeToImage(props.imageTag) }}>
+      <div className={`current-prize${props.hidden ? ' hidden' : ''}`} style={{ backgroundImage: prizeToImage(props.imageTag) }}>
         <div className="container">
           <h2>{ props.title }</h2>
           <p>{ props.description }</p>
@@ -57,6 +58,7 @@ PrizeBox.propTypes = {
   videoTag: PropTypes.string.isRequired,
   hidden: PropTypes.bool,
   hasWinner: PropTypes.bool,
+  dramatic: PropTypes.bool,
 }
 
 export default Prize
