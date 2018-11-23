@@ -12,7 +12,6 @@ div.display-container {
 }
 
 div.display-container > div.videoFX {
-  background-color: red;
   position: fixed;
   width: 1000px;
   height: 440px;

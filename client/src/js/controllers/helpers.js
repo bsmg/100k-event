@@ -5,6 +5,8 @@ import viveProPlutovr from '../../images/prizes/vive-pro-plutovr.png'
 import placeholder from '../../images/prizes/placeholder.png'
 import bsmg from '../../images/logo-banner.png'
 
+import ticketConfetti from '../../videos/ticket-confetti.webm'
+
 /**
  * @param {any[]} array Array
  * @returns {number}
@@ -82,6 +84,17 @@ export const prizeToImage = prize => {
       return `url(${bsmg})`
     default:
       return `url(${placeholder})`
+  }
+}
+
+/**
+ * @param {string} tag Price Image
+ * @returns {string}
+ */
+export const tagToVideo = tag => {
+  switch (tag) {
+    default:
+      return `${ticketConfetti}`
   }
 }
 

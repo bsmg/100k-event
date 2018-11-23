@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Context from '../controllers/Context.jsx'
-import { prizeToImage } from '../controllers/helpers.js'
+import { prizeToImage, tagToVideo } from '../controllers/helpers.js'
 
 import '../../css/prize.css'
 
@@ -33,9 +33,8 @@ class Prize extends Component {
 const PrizeBox = props =>
   <div className='display-container'>
     <div className='videoFX'>
-      <video id="background-video" loop autoPlay>
-        <source src={ props.videoURL } type="video/mp4" />
-        <source src={ props.videoURL } type="video/ogg" />
+      <video id="background-video" loop autoPlay muted>
+        <source src={ tagToVideo('ticket-confetti') } type="video/mp4" />
             Your browser does not support the video tag.
       </video>
     </div>
