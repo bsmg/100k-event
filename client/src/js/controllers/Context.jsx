@@ -87,6 +87,8 @@ export class ControllerProvider extends Component {
     const [prize] = this.state.prizes
     const winner = this.state.contestants[index]
 
+    await this.setStateAsync({ activeIdx: null, selectedIdx: null })
+
     const prizes = [...this.state.prizes].slice(1)
     const contestants = [...this.state.contestants].filter((_, i) => index !== i)
     const drawn = [...this.state.drawn, { prize, winner }]
