@@ -6,6 +6,7 @@ import { waitMS, decelerate, randomRange, PooledRandomRange } from './helpers.js
 import { contestants as initialContestants, prizes as initialPrizes } from './data.js'
 
 import winnerJingle from '../../media/winner-jingle6.wav'
+import dramaticSFX from '../../media/dramatic-sfx4.wav'
 import tickSFX_A4 from '../../media/tick3-A4.wav'
 import tickSFX_G4 from '../../media/tick3-G4.wav'
 import tickSFX_E4 from '../../media/tick3-E4.wav'
@@ -93,10 +94,13 @@ export class ControllerProvider extends Component {
     const contestants = [...this.state.contestants].filter((_, i) => index !== i)
     const drawn = [...this.state.drawn, { prize, winner }]
 
+    if (prizes[0] && prizes[0].dramatic) this.playSound(dramaticSFX, 0.3)
     await this.setStateAsync({ prizeHidden: true })
     await waitMS(200)
+
     await this.setStateAsync({ prizes, contestants, drawn })
     await waitMS(200)
+
     await this.setStateAsync({ prizeHidden: false })
   }
 
@@ -138,9 +142,9 @@ export class ControllerProvider extends Component {
       this.setState({ activeIdx: random })
     }
 
-    await waitMS(this.debug ? 0 : 650)
+    await waitMS(this.debug ? 0 : 750)
     this.playSound(winnerJingle, 0.35)
-    await waitMS(this.debug ? 0 : 150)
+    await waitMS(this.debug ? 0 : 50)
     this.setState(prevState => ({ selectedIdx: prevState.activeIdx }))
   }
 

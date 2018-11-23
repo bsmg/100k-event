@@ -23,6 +23,7 @@ export const prizes = [
     name: 'VIVE Pro',
     description: 'VIVE Pro v2 Full Kit',
     image: 'vive-pro-plutovr',
+    dramatic: true,
   },
   {
     name: 'Prize Pack',
@@ -53,6 +54,7 @@ export const prizes = [
     name: 'VIVE Pro',
     description: 'VIVE Pro v2 Full Kit',
     image: 'vive-pro-vrfi',
+    dramatic: true,
   },
   {
     name: 'Prize Pack',
@@ -78,6 +80,7 @@ export const prizes = [
     name: 'VIVE Pro + Wireless',
     description: 'VIVE Pro v2 Full Kit + Wireless Adapter',
     image: 'vive-pro-htc',
+    dramatic: true,
   },
   {
     name: 'Prize Pack',
@@ -108,6 +111,7 @@ export const prizes = [
     name: 'VIVE Pro + Wireless',
     description: 'VIVE Pro v2 Full Kit + Wireless Adapter',
     image: 'vive-pro-htc',
+    dramatic: true,
   },
 ]
 
