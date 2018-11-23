@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Context from '../controllers/Context.jsx'
 import { prizeToImage } from '../controllers/helpers.js'
-import ticketConfetti from '../../videos/ticket-confetti.webm'
+import ticketConfetti from '../../media/ticket-confetti.webm'
 
 import '../../css/prize.css'
 
