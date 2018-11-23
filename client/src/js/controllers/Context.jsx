@@ -30,7 +30,7 @@ export class ControllerProvider extends Component {
   constructor (props) {
     super(props)
 
-    this.debug = false
+    this.debug = this.props.debug || false
 
     this.initialState = {
       contestants: [...initialContestants],
@@ -72,6 +72,7 @@ export class ControllerProvider extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     master: PropTypes.bool,
+    debug: PropTypes.bool,
     token: PropTypes.string,
   }
 
