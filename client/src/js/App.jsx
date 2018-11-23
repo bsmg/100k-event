@@ -22,7 +22,7 @@ class App extends Component {
             <Fragment>
               <button disabled={ this.context.activeIdx !== null } className='debug' onClick={ () => this.context.pickWinner() }>DRAW WINNER</button>
               <button disabled={ this.context.selectedIdx === null } className='debug next' onClick={ () => this.context.reset() }>NEXT</button>
-              <button className='debug reset' onClick={ () => this.context.resetStorage() }>RESET STATE</button>
+              <button className='debug reset' onClick={ () => this.context.resetStorage() }>RESET EVERYTHING</button>
             </Fragment>
         }
 
