@@ -143,9 +143,9 @@ export class ControllerProvider extends Component {
       this.setState({ activeIdx: random })
     }
 
-    await waitMS(this.debug ? 0 : 750)
+    await waitMS(this.debug ? 0 : 500)
     this.playSound(winnerJingle, 0.35)
-    await waitMS(this.debug ? 0 : 50)
+    await waitMS(this.debug ? 0 : 182.5)
     this.setState(prevState => ({ selectedIdx: prevState.activeIdx }))
   }
 
