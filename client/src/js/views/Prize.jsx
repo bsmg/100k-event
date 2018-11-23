@@ -10,7 +10,7 @@ class Prize extends Component {
   static contextType = Context
 
   render () {
-    const { prizes, prizeHidden } = this.context
+    const { prizes, prizeHidden, selectedIdx } = this.context
     if (prizes.length === 0) {
       return <PrizeBox
         title="That's all folks!"
@@ -26,6 +26,7 @@ class Prize extends Component {
       description={ prize.description }
       imageTag={ prize.image }
       hidden={ prizeHidden }
+      hasWinner={ selectedIdx !== null }
     />
   }
 }
@@ -33,7 +34,7 @@ class Prize extends Component {
 const PrizeBox = props =>
   <div className='display-container'>
     <div className='videoFX'>
-      <video id="background-video" loop autoPlay muted>
+      <video id="background-video" loop autoPlay muted className={`${props.hasWinner ? '' : 'hidden'}`}>
         <source src={ tagToVideo('ticket-confetti') } type="video/mp4" />
             Your browser does not support the video tag.
       </video>
@@ -55,6 +56,7 @@ PrizeBox.propTypes = {
   imageTag: PropTypes.string.isRequired,
   videoTag: PropTypes.string.isRequired,
   hidden: PropTypes.bool,
+  hasWinner: PropTypes.bool,
 }
 
 export default Prize
