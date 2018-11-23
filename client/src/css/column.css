@@ -59,6 +59,63 @@ div.item.active {
   background-color: white;
 }
 
+/* Image Left */
+div.item.image-left {
+  position: relative;
+  border-radius: 0 4px 4px 0;
+}
+
+div.item.image-left::before {
+  position: absolute;
+  height: 37px;
+  width: 37px;
+
+  content: '';
+  background-image: var(--image);
+  background-size: contain;
+
+  top: 0;
+  left: -37px;
+  border-radius: 4px 0 0 4px;
+
+  filter: saturate(0.6);
+}
+
+div.item.title.image-left {
+  transform: translateX(calc((37px / 2) * -1));
+}
+
+/* Image Right */
+div.item.image-right {
+  position: relative;
+  border-radius: 4px 0 0 4px;
+}
+div.item.joined.image-right {
+  position: relative;
+  border-radius: 0 !important;
+}
+
+div.item.image-right::after {
+  position: absolute;
+  height: 37px;
+  width: 37px;
+
+  content: '';
+  background-image: var(--image);
+  background-size: contain;
+
+  top: 0;
+  right: 0;
+  transform: translateX(37px);
+  border-radius: 0 4px 4px 0;
+
+  filter: saturate(0.6);
+}
+
+div.item.title.image-left {
+  transform: translateX(calc((37px / 2) * -1));
+}
+
 div.column.contestants > div.item.selected {
   transform: translateX(-15px);
 }
