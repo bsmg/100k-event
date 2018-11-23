@@ -99,6 +99,7 @@ export class ControllerProvider extends Component {
       this.playSound(dramaticSFX, 0.3)
       await waitMS(220)
     }
+
     await this.setStateAsync({ prizeHidden: true })
     await waitMS(200)
 

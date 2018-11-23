@@ -42,7 +42,7 @@ div.current-prize-container > div.current-prize {
 div.display-container > div.dramatic {
   animation-name: dramaticShake;
   animation-duration: 0.5s;
-  animation-iteration-count:1;
+  animation-iteration-count: 1;
 }
 
 div.current-prize-container div.current-prize div.container {

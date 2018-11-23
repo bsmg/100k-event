@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Context from '../controllers/Context.jsx'
-import { prizeToImage, tagToVideo } from '../controllers/helpers.js'
+import { prizeToImage } from '../controllers/helpers.js'
+import ticketConfetti from '../../videos/ticket-confetti.webm'
 
 import '../../css/prize.css'
 
@@ -35,15 +36,15 @@ class Prize extends Component {
 const PrizeBox = props =>
   <div className='display-container'>
     <div className='videoFX'>
-      <video id="background-video" loop autoPlay muted className={`${props.hasWinner ? '' : 'hidden'}`}>
-        <source src={ tagToVideo('ticket-confetti') } type="video/mp4" />
-            Your browser does not support the video tag.
+      <video id='background-video' loop autoPlay muted className={`${props.hasWinner ? '' : 'hidden'}`}>
+        <source src={ ticketConfetti } type='video/mp4' />
+          Your browser does not support the video tag.
       </video>
     </div>
     <div className={`current-prize-container${props.dramatic ? ' dramatic' : ''}`}>
       <h2>Current Prize</h2>
       <div className={`current-prize${props.hidden ? ' hidden' : ''}`} style={{ backgroundImage: prizeToImage(props.imageTag) }}>
-        <div className="container">
+        <div className='container'>
           <h2>{ props.title }</h2>
           <p>{ props.description }</p>
         </div>
@@ -55,7 +56,6 @@ PrizeBox.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   imageTag: PropTypes.string.isRequired,
-  videoTag: PropTypes.string.isRequired,
   hidden: PropTypes.bool,
   hasWinner: PropTypes.bool,
   dramatic: PropTypes.bool,

@@ -5,8 +5,6 @@ import viveProPlutovr from '../../images/prizes/vive-pro-plutovr.png'
 import placeholder from '../../images/prizes/placeholder.png'
 import bsmg from '../../images/logo-banner.png'
 
-import ticketConfetti from '../../videos/ticket-confetti.webm'
-
 /**
  * @param {any[]} array Array
  * @returns {number}
@@ -88,20 +86,8 @@ export const prizeToImage = prize => {
 }
 
 /**
- * @param {string} tag Price Image
- * @returns {string}
- */
-export const tagToVideo = tag => {
-  switch (tag) {
-    default:
-      return `${ticketConfetti}`
-  }
-}
-
-/**
  * @param {number} x X Coordinate
  * @param {number} [seed] Random Seed
  * @returns {number}
  */
 export const decelerate = (x, seed = 0.5) => Math.pow(Math.pow(10 * x, -1), 0.5) * seed
-
