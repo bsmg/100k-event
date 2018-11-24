@@ -131,8 +131,8 @@ div.item.image-right::after {
   filter: saturate(0.6);
 }
 
-div.item.title.image-left {
-  transform: translateX(calc((37px / 2) * -1));
+div.item.title.image-right {
+  transform: translateX(calc((37px / 2) * 1));
 }
 
 div.column.contestants > div.item.selected {

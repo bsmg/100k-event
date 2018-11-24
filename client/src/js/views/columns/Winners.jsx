@@ -10,7 +10,7 @@ class Winners extends Component {
     return (
       <Fragment>
         <div className='column winners'>
-          <div className='item title'>Winners</div>
+          <div className='item title image-right'>Winners</div>
           {
             this.context.drawn.map(({ winner }, i) =>
               <div
