@@ -43,6 +43,7 @@ export class ControllerProvider extends Component {
       drawn: [],
 
       prizeHidden: false,
+      blackbox: false,
     }
 
     const localState = localStorage.getItem('state')
@@ -224,6 +225,7 @@ export class ControllerProvider extends Component {
         selectedIdx: this.state.selectedIdx,
 
         prizeHidden: this.state.prizeHidden,
+        blackbox: this.state.blackbox,
 
         // Mutators
         setActiveIdx: idx => { this.setState({ activeIdx: idx }) },

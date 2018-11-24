@@ -1,0 +1,16 @@
+div.blackbox {
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  transition: opacity 0.15s ease-in-out;
+
+  --dark: rgba(0, 0, 0, 0.8);
+  --light: rgba(0, 0, 255, 0);
+  background: linear-gradient(90deg, var(--dark), var(--dark) 81.5%, var(--light) 89%, var(--light));
+}
