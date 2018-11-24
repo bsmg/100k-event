@@ -3,6 +3,8 @@ import viveProHTC from '../../images/prizes/vive-pro-htc.png'
 import viveProVRFI from '../../images/prizes/vive-pro-vrfi.png'
 import viveProPlutovr from '../../images/prizes/vive-pro-plutovr.png'
 import placeholder from '../../images/prizes/placeholder.png'
+import hoodie from '../../images/prizes/prize-hoodie.png'
+import shirt from '../../images/prizes/prize-tshirt.png'
 import bsmg from '../../images/logo-banner.png'
 
 // Prize Packs
@@ -29,6 +31,10 @@ export const prizeToImage = prize => {
       return `url(${viveProPlutovr})`
     case 'bsmg':
       return `url(${bsmg})`
+    case 'hoodie':
+      return `url(${hoodie})`
+    case 'shirt':
+      return `url(${shirt})`
     default:
       return `url(${placeholder})`
   }
@@ -36,9 +42,9 @@ export const prizeToImage = prize => {
 
 export const packToImage = pack => {
   switch (pack) {
-    case '100-dollar-1':
+    case 'hundred-dollar1':
       return hundoDollar1
-    case '100-dollar-2':
+    case 'hundred-dollar2':
       return hundoDollar2
     case 'chefs':
       return chefs
