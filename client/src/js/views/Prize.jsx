@@ -17,6 +17,7 @@ class Prize extends Component {
         title="That's all folks!"
         description="Thanks for coming. We'll be continuing the stream with more things to watch so stay tuned!"
         imageTag={ 'bsmg' }
+        packTag={ 'blank' }
         hidden={ prizeHidden }
       />
     }
@@ -26,6 +27,7 @@ class Prize extends Component {
       title={ prize.name }
       description={ prize.description }
       imageTag={ prize.image }
+      packTag={ prize.prizePack }
       hidden={ prizeHidden }
       hasWinner={ selectedIdx !== null }
       dramatic={ prize.dramatic }
