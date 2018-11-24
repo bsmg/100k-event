@@ -44,7 +44,7 @@ export const packToImage = pack => {
   switch (pack) {
     case 'hundred-dollar1':
       return hundoDollar1
-    case 'hunder-dollar2':
+    case 'hundred-dollar2':
       return hundoDollar2
     case 'chefs':
       return chefs

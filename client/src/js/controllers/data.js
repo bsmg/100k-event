@@ -15,7 +15,7 @@ export const prizes = [
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'hoodie',
-    prizePack: 'hoodie1',
+    prizePack: 'hoodie-1',
   },
   {
     name: 'Prize Pack',
@@ -40,7 +40,7 @@ export const prizes = [
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'placeholder',
-    prizePack: 'holoDance',
+    prizePack: 'holodance',
   },
   {
     name: 'Prize Pack',
@@ -52,7 +52,7 @@ export const prizes = [
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'hoodie',
-    prizePack: 'hoodie1',
+    prizePack: 'hoodie-1',
   },
   {
     name: 'Prize Pack',
@@ -83,7 +83,7 @@ export const prizes = [
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'placeholder',
-    prizePack: 'holoDance',
+    prizePack: 'holodance',
   },
   {
     name: 'Prize Pack',
@@ -114,7 +114,7 @@ export const prizes = [
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'shirt',
-    prizePack: 'holoDance',
+    prizePack: 'holodance',
   },
   {
     name: 'Prize Pack',
@@ -126,7 +126,7 @@ export const prizes = [
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'hoodie',
-    prizePack: 'hoodie1',
+    prizePack: 'hoodie-1',
   },
   {
     name: 'VIVE Pro + Wireless',
