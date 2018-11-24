@@ -1,10 +1,3 @@
-// Images
-import viveProHTC from '../../images/prizes/vive-pro-htc.png'
-import viveProVRFI from '../../images/prizes/vive-pro-vrfi.png'
-import viveProPlutovr from '../../images/prizes/vive-pro-plutovr.png'
-import placeholder from '../../images/prizes/placeholder.png'
-import bsmg from '../../images/logo-banner.png'
-
 /**
  * @param {any[]} array Array
  * @returns {number}
@@ -65,25 +58,6 @@ export class PooledRandomRange {
  * @returns {Promise.<void>}
  */
 export const waitMS = ms => new Promise(resolve => setTimeout(() => resolve(), ms))
-
-/**
- * @param {string} prize Price Image
- * @returns {string}
- */
-export const prizeToImage = prize => {
-  switch (prize) {
-    case 'vive-pro-htc':
-      return `url(${viveProHTC})`
-    case 'vive-pro-vrfi':
-      return `url(${viveProVRFI})`
-    case 'vive-pro-plutovr':
-      return `url(${viveProPlutovr})`
-    case 'bsmg':
-      return `url(${bsmg})`
-    default:
-      return `url(${placeholder})`
-  }
-}
 
 /**
  * @param {number} x X Coordinate

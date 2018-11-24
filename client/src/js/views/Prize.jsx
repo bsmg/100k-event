@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Context from '../controllers/Context.jsx'
-import { prizeToImage } from '../controllers/helpers.js'
+import { prizeToImage, packToImage } from '../controllers/prizeHelpers.js'
 import ticketConfetti from '../../media/ticket-confetti.webm'
 
 import '../../css/prize.css'
@@ -38,7 +38,7 @@ const PrizeBox = props =>
     <div className='videoFX'>
       <video id='background-video' loop autoPlay muted className={`${props.hasWinner ? '' : 'hidden'}`}>
         <source src={ ticketConfetti } type='video/mp4' />
-          Your browser does not support the video tag.
+        Your browser does not support the video tag.
       </video>
     </div>
     <div className={`current-prize-container${props.dramatic ? ' dramatic' : ''}`}>
@@ -49,6 +49,12 @@ const PrizeBox = props =>
           <p>{ props.description }</p>
         </div>
       </div>
+
+      <img
+        className={ `prize-pack${props.hidden ? ' hidden' : ''}` }
+        src={ packToImage(props.packTag) }
+        alt='Prize Pack'
+      />
     </div>
   </div>
 
@@ -56,6 +62,7 @@ PrizeBox.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   imageTag: PropTypes.string.isRequired,
+  packTag: PropTypes.string.isRequired,
   hidden: PropTypes.bool,
   hasWinner: PropTypes.bool,
   dramatic: PropTypes.bool,

@@ -1,7 +1,7 @@
 div.display-container {
   margin: 10px;
   margin-left: 30px;
-  height: calc(70% - (2 * 10px));
+  height: calc(90% - (2 * 10px));
   
   display: flex;
   flex-direction: column;
@@ -20,6 +20,7 @@ div.display-container > div.videoFX {
 
 video#background-video {
   transition: opacity 0.15s;
+  transform: translateY(-140px);
 }
 
 div.current-prize-container > h2 {
@@ -82,4 +83,9 @@ div.current-prize-container div.current-prize div.container > p {
   60%   {transform: translate(-5px, 0px);}
   70%   {transform: translate(2px, -5px);}
   80%   {transform: translate(-2px, 0px);}
+}
+
+img.prize-pack {
+  margin-top: 10px;
+  transition: opacity 0.15s;
 }
