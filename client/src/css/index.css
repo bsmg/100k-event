@@ -11,6 +11,10 @@ body {
   background-image: url('../images/background.png');
 }
 
+img {
+  pointer-events: none;
+}
+
 button.debug {
   position: absolute;
   top: 50px;
