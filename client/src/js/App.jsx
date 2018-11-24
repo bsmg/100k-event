@@ -8,6 +8,7 @@ import Prizes from './views/columns/Prizes.jsx'
 import Winners from './views/columns/Winners.jsx'
 import Contestants from './views/columns/Contestants.jsx'
 
+import Blackbox from './views/Blackbox.jsx'
 import Prize from './views/Prize.jsx'
 import Footer from './views/Footer.jsx'
 
@@ -25,6 +26,8 @@ class App extends Component {
               <button className='debug reset' onClick={ () => this.context.resetStorage() }>RESET EVERYTHING</button>
             </Fragment>
         }
+
+        <Blackbox dark={ this.context.blackbox } />
 
         <Prizes />
         <Winners />

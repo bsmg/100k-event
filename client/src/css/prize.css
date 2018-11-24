@@ -19,7 +19,7 @@ div.display-container > div.videoFX {
 }
 
 video#background-video {
-  transition: opacity 0.15s;
+  transition: opacity 0.15s ease-in-out;
   transform: translateY(-140px);
 }
 
@@ -41,7 +41,7 @@ div.current-prize-container > div.current-prize {
   width: 800px;
   height: 240px;
 
-  transition: opacity 0.15s;
+  transition: opacity 0.15s ease-in-out;
 }
 
 div.display-container > div.dramatic {
@@ -87,5 +87,5 @@ div.current-prize-container div.current-prize div.container > p {
 
 img.prize-pack {
   margin-top: 10px;
-  transition: opacity 0.15s;
+  transition: opacity 0.15s ease-in-out;
 }

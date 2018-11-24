@@ -43,6 +43,7 @@ export class ControllerProvider extends Component {
       drawn: [],
 
       prizeHidden: false,
+      blackbox: false,
     }
 
     const localState = localStorage.getItem('state')
@@ -119,7 +120,7 @@ export class ControllerProvider extends Component {
         this.setState({ activeIdx: 0 })
       } else {
         const start = this.startPool.generate() % this.state.prizes.length
-        this.setState({ activeIdx: start, selectedIdx: null })
+        this.setState({ activeIdx: start, selectedIdx: null, blackbox: true })
 
         const seed = this.seedPool.generate() / 100
         const steps = this.stepPool.generate()
@@ -151,6 +152,8 @@ export class ControllerProvider extends Component {
     this.playSound(winnerJingle, 0.35)
     await waitMS(this.debug ? 0 : 182.5)
     this.setState(prevState => ({ selectedIdx: prevState.activeIdx }))
+    await waitMS(this.debug ? 0 : 500)
+    this.setState({ blackbox: false })
   }
 
   playSound (src, volume, send = true) {
@@ -224,6 +227,7 @@ export class ControllerProvider extends Component {
         selectedIdx: this.state.selectedIdx,
 
         prizeHidden: this.state.prizeHidden,
+        blackbox: this.state.blackbox,
 
         // Mutators
         setActiveIdx: idx => { this.setState({ activeIdx: idx }) },

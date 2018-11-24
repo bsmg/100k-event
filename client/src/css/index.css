@@ -20,6 +20,8 @@ button.debug {
   top: 50px;
   right: 240px;
   font-size: 2rem;
+
+  z-index: 1000;
 }
 
 button.debug.next {

@@ -5,7 +5,7 @@ div.column {
   justify-content: space-evenly;
   margin-left: 10px;
   margin-right: 4px;
-  transition: opacity .15s;
+  transition: opacity .15s ease-in-out;
 
   line-height: 10px;
 }
@@ -33,7 +33,7 @@ div.item {
   line-height: 1.1;
   font-weight: bold;
 
-  transition: all .1s;
+  transition: all .1s ease-in-out;
 }
 
 div.item.joined {
