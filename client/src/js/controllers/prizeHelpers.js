@@ -7,7 +7,13 @@ import bsmg from '../../images/logo-banner.png'
 
 // Prize Packs
 import blank from '../../images/prize-packs/blank.png'
+import hundoDollar1 from '../../images/prize-packs/prizepack-100-dollar-1.png'
+import hundoDollar2 from '../../images/prize-packs/prizepack-100-dollar-2.png'
+import chefs from '../../images/prize-packs/prizepack-chefs.png'
+import holoDance from '../../images/prize-packs/prizepack-holodance.png'
+import hoodie1 from '../../images/prize-packs/prizepack-hoodie-1.png'
 import proRegular from '../../images/prize-packs/prizepack-pro-regular.png'
+import proWireless from '../../images/prize-packs/prizepack-pro-wireless.png'
 
 /**
  * @param {string} prize Price Image
@@ -30,8 +36,20 @@ export const prizeToImage = prize => {
 
 export const packToImage = pack => {
   switch (pack) {
+    case '100-dollar-1':
+      return hundoDollar1
+    case '100-dollar-2':
+      return hundoDollar2
+    case 'chefs':
+      return chefs
+    case 'holodance':
+      return holoDance
+    case 'hoodie-1':
+      return hoodie1
     case 'pro-regular':
       return proRegular
+    case 'pro-wireless':
+      return proWireless
     default:
       return blank
   }
