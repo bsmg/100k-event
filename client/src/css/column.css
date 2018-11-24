@@ -59,6 +59,15 @@ div.item.active {
   background-color: white;
 }
 
+div.column.contestants > div.item.active {
+  transform: translateX(-15px);
+}
+
+div.column.prizes > div.item.active {
+  transform: translateX(15px);
+  box-shadow: 0px 0px 18px rgba(255, 255, 255, 0.75)
+}
+
 @keyframes pulse {
   0%   { box-shadow: 0px 0px 0px rgba(255, 255, 255, 0.75) }
   50%  { box-shadow: 0px 0px 18px rgba(255, 255, 255, 0.75) }
@@ -124,7 +133,7 @@ div.item.title.image-left {
 }
 
 div.column.contestants > div.item.selected {
-  transform: translateX(-15px);
+  transform: translateX(-30px);
   animation-name: pulse;
   animation-duration: 0.7s;
   animation-iteration-count: infinite;
