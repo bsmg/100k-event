@@ -9,7 +9,7 @@ export const prizes = [
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'placeholder',
-    prizePack: 'hundoDollar2',
+    prizePack: 'hundred-dollar2',
   },
   {
     name: 'Prize Pack',
@@ -21,7 +21,7 @@ export const prizes = [
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'placeholder',
-    prizePack: 'hundoDollar2',
+    prizePack: 'hundred-dollar2',
   },
   {
     name: 'VIVE Pro',
@@ -34,7 +34,7 @@ export const prizes = [
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'placeholder',
-    prizePack: 'hundoDollar1',
+    prizePack: 'hundred-dollar1',
   },
   {
     name: 'Prize Pack',
@@ -46,7 +46,7 @@ export const prizes = [
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'placeholder',
-    prizePack: 'hundoDollar2',
+    prizePack: 'hundred-dollar2',
   },
   {
     name: 'Prize Pack',
@@ -58,7 +58,7 @@ export const prizes = [
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'placeholder',
-    prizePack: 'hundoDollar2',
+    prizePack: 'hundred-dollar2',
   },
   {
     name: 'VIVE Pro',
@@ -77,7 +77,7 @@ export const prizes = [
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'placeholder',
-    prizePack: 'hundoDollar2',
+    prizePack: 'hundred-dollar2',
   },
   {
     name: 'Prize Pack',
@@ -89,7 +89,7 @@ export const prizes = [
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'placeholder',
-    prizePack: 'hundoDollar1',
+    prizePack: 'hundred-dollar1',
   },
   {
     name: 'VIVE Pro + Wireless',
@@ -102,13 +102,13 @@ export const prizes = [
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'placeholder',
-    prizePack: 'hundoDollar2',
+    prizePack: 'hundred-dollar2',
   },
   {
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'placeholder',
-    prizePack: 'hundoDollar1',
+    prizePack: 'hundred-dollar1',
   },
   {
     name: 'Prize Pack',
@@ -120,7 +120,7 @@ export const prizes = [
     name: 'Prize Pack',
     description: 'A pack of VR gear, games, or gift cards!',
     image: 'placeholder',
-    prizePack: 'hundoDollar2',
+    prizePack: 'hundred-dollar2',
   },
   {
     name: 'Prize Pack',

@@ -42,9 +42,9 @@ export const prizeToImage = prize => {
 
 export const packToImage = pack => {
   switch (pack) {
-    case '100-dollar-1':
+    case 'hundred-dollar1':
       return hundoDollar1
-    case '100-dollar-2':
+    case 'hunder-dollar2':
       return hundoDollar2
     case 'chefs':
       return chefs
