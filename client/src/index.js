@@ -8,17 +8,19 @@ import { ControllerProvider } from './js/controllers/Context.jsx'
 import App from './js/App.jsx'
 
 const Master = props => <ControllerProvider master token={ props.match.params.token }><App /></ControllerProvider>
-const Debug = props => <ControllerProvider master debug token={ props.match.params.token }><App /></ControllerProvider>
+const DebugMaster = props => <ControllerProvider master debug token={ props.match.params.token }><App /></ControllerProvider>
 const Slave = () => <ControllerProvider><App /></ControllerProvider>
+const DebugSlave = () => <ControllerProvider debug><App /></ControllerProvider>
 
 Master.propTypes = { match: PropTypes.any }
-Debug.propTypes = { match: PropTypes.any }
+DebugMaster.propTypes = { match: PropTypes.any }
 
 const Routes = () =>
   <BrowserRouter>
     <Switch>
       <Route path='/master/:token' component={ Master } />
-      <Route path='/debug/:token' component={ Debug } />
+      <Route path='/debug/:token' component={ DebugMaster } />
+      <Route path='/debug' component={ DebugSlave } />
       <Route path='/' component={ Slave } />
     </Switch>
   </BrowserRouter>
